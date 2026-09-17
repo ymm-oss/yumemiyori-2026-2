@@ -15,3 +15,19 @@
     word-wrap: break-word;
     white-space: nowrap;
 }
+
+/**
+ QR コード画像（qr-*.png）には図番号を振らない
+
+ @note
+ 図番号（vs-counter-fig）と脚注番号は別カウントのため、QR に図番号が
+ 付くと脚注の番号とずれて紛らわしい。QR は脚注 URL の補助なので、
+ 図としてカウントせず、キャプションのラベルだけを表示する。
+ */
+figure:has(> img[src*="qr-"]) {
+    counter-increment: none;
+}
+
+figure:has(> img[src*="qr-"]) figcaption::before {
+    content: none;
+}
