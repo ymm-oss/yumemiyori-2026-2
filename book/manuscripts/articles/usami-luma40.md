@@ -38,7 +38,7 @@ PC 用のキーボードのキーは、格子状には並んでおらず各キ�
 
 <!-- textlint-disable spellcheck-tech-word -- VFM の幅指定に含まれる CSS の % を全角化する誤検出を避ける -->
 
-![ロウスタッガード、カラムスタッガード、オーソリニアの比較](./images_usami-luma40/keyboard-layout-comparison.svg){style="width: 85%"}
+![ロウスタッガード、カラムスタッガード、オーソリニアの比較](./images_usami-luma40/keyboard-layout-comparison.png){style="width: 85%"}
 
 <!-- textlint-enable spellcheck-tech-word -->
 
@@ -50,7 +50,7 @@ Luma40 はオーソリニア配列となっています。
 
 フルサイズのキーボードは、テンキーを含めると 100 以上のキーがあります。それに対していくつかのキーを省いたものを「⚪︎⚪︎％キーボード」と呼ぶ場合があります。厳密な定義はありませんが、目安としては次のような感じです。
 
-![「⚪︎⚪︎％キーボード」の目安](./images_usami-luma40/keyboard-size-comparison.svg)
+![「⚪︎⚪︎％キーボード」の目安](./images_usami-luma40/keyboard-size-comparison.png)
 
 Luma40 は 40％キーボードにあたります。キー数は 47 です。Fn キーを持っており、数字や一部の記号は Fn キーとの組み合わせで入力することになります。
 

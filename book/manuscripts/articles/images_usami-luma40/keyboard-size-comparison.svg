@@ -56,12 +56,12 @@
       <path d="M 0 0 L 10 5 L 0 10 z" fill="#9e3f32"/>
     </marker>
     <style>
-      .label { font: 700 34px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; fill: #202020; }
-      .count { font: 700 25px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; fill: #9e3f32; }
-      .explanation { font: 400 23px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; fill: #404040; }
-      .annotation { font: 700 21px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; fill: #9e3f32; }
-      .key-label { font: 700 18px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; fill: #242424; text-anchor: middle; }
-      .note { font: 400 20px -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", sans-serif; fill: #585858; }
+      .label { font: 700 34px "Noto Sans JP", sans-serif; fill: #202020; }
+      .count { font: 700 25px "Noto Sans JP", sans-serif; fill: #9e3f32; }
+      .explanation { font: 400 23px "Noto Sans JP", sans-serif; fill: #404040; }
+      .annotation { font: 700 21px "Noto Sans JP", sans-serif; fill: #9e3f32; }
+      .key-label { font: 700 18px "Noto Sans JP", sans-serif; fill: #242424; text-anchor: middle; }
+      .note { font: 400 20px "Noto Sans JP", sans-serif; fill: #585858; }
       .panel { fill: #ffffff; stroke: #d4d4cf; stroke-width: 2; }
       .arrow { fill: none; stroke: #9e3f32; stroke-width: 3; marker-end: url(#arrow); }
       .layer { fill: #f4e2de; stroke: #9e3f32; stroke-width: 2; }
