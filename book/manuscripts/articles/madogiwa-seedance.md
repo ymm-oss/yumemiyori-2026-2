@@ -29,6 +29,10 @@ profile: |
 
 ![窓際族物語の公式サイト](./images_madogiwa/qr-madogiwa-site.png){width=110}
 
+さらに、窓際族物語の YouTube チャンネル <span class="footnote">窓際族物語の YouTube チャンネル, https://www.youtube.com/channel/UCyQtPu94OaiGxFdd2A6bXdw</span> もつくりました。チャンネル登録と高評価をお願いします！
+
+![窓際族物語の YouTube チャンネル](./images_madogiwa/qr-youtube.png){width=110}
+
 著者は、Seedance 2.0→Seedance 2.5→MiniMax H3（以下、H3）という流れで、使う動画生成 AI を変えてきました。ただ、どれを使っても精度の上げ方に大きな違いはないと感じています。
 
 ## 画像生成の精度を上げる
@@ -41,7 +45,7 @@ profile: |
 
 キャラ設定をまとめておくと、「そば屋がビールを飲んでるシーンを描いて」とか「福ちゃんとやめ太郎が漫才をしているシーンを描いて」と指示するだけで、次のような画像を用意してくれます。
 
-![キャラ設定だけを頼りに生成した画像の例](./images_madogiwa/character-generation-sample.png)
+![キャラ設定だけを頼りに生成した画像の例](./images_madogiwa/character-generation-sample.jpg)
 
 さらに精度を上げるためのポイントは、次の 2 つです。
 
@@ -212,9 +216,9 @@ H3 では、渡した音声をそのまま使ってもリップシンクをそ�
 
 たとえば、次のフレームでは、ドアのノブが蝶番側に描かれてしまっています。プロンプトとキーフレームのどちらでも金具の位置を指定していなかったため、Seedance が食い違いを補間で辻褄合わせした結果です。
 
-![ノブが蝶番側についたままドアを開けている失敗フレーム](./images_madogiwa/door-knob-hinge-side-open.png){width=160}
+![ノブが蝶番側についたままドアを開けている失敗フレーム](./images_madogiwa/door-knob-hinge-side-open.jpg){width=160}
 
-![閉まったドアでもノブが蝶番側に描かれている](./images_madogiwa/door-knob-hinge-side-closed.png){width=160}
+![閉まったドアでもノブが蝶番側に描かれている](./images_madogiwa/door-knob-hinge-side-closed.jpg){width=160}
 
 こうした違和感をみつけたら、その場しのぎではなくプロンプト側のルールを直します。この例では、カメラから見た蝶番側・ノブ側・開き方向をまとめた配置台帳（Fixture layout）を台本の冒頭に書き、全クリップで唯一の正としました。さらに、プロンプトでは蝶番側とノブ側を常にセットで明示して、「ノブは消えない、蝶番側へ移動しない」という否定形の指示まで入れます。
 
