@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 80 1200 1180" role="img" aria-labelledby="title description">
+  <title id="title">キーボード配列のずれ方の比較</title>
+  <desc id="description">ロウスタッガード、カラムスタッガード、オーソリニアを、同じ数のキーで比較した模式図。ロウスタッガードは行ごとに左右へずれ、カラムスタッガードは列ごとに上下へずれ、オーソリニアは縦横にそろっている。</desc>
+
+  <defs>
+    <symbol id="key" viewBox="0 0 58 58">
+      <rect x="1.5" y="1.5" width="55" height="55" rx="7" fill="#f8f8f6" stroke="#242424" stroke-width="3"/>
+    </symbol>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9e3f32"/>
+    </marker>
+    <style>
+      .label { font: 700 34px "Noto Sans JP", sans-serif; fill: #202020; }
+      .explanation { font: 400 25px "Noto Sans JP", sans-serif; fill: #404040; }
+      .guide { fill: none; stroke: #a7a7a2; stroke-width: 2; stroke-dasharray: 7 7; }
+      .grid { fill: none; stroke: #a7a7a2; stroke-width: 2; stroke-dasharray: 6 5; }
+      .offset { fill: none; stroke: #9e3f32; stroke-width: 4; marker-end: url(#arrow); }
+      .panel { fill: #ffffff; stroke: #d4d4cf; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1260" fill="#ffffff"/>
+
+  <!-- Row-staggered -->
+  <g transform="translate(60 100)">
+    <rect class="panel" width="1080" height="340" rx="18"/>
+    <text class="label" x="40" y="69">ロウスタッガード</text>
+    <text class="explanation" x="40" y="112">行ごとに左右へずれる</text>
+
+    <path class="guide" d="M 436 60 V 310"/>
+    <path class="offset" d="M 438 106 H 474"/>
+    <path class="offset" d="M 438 170 H 492"/>
+    <path class="offset" d="M 438 234 H 510"/>
+    <path class="offset" d="M 438 298 H 528"/>
+
+    <g>
+      <use href="#key" x="476" y="77" width="58" height="58"/><use href="#key" x="546" y="77" width="58" height="58"/><use href="#key" x="616" y="77" width="58" height="58"/><use href="#key" x="686" y="77" width="58" height="58"/><use href="#key" x="756" y="77" width="58" height="58"/><use href="#key" x="826" y="77" width="58" height="58"/>
+      <use href="#key" x="494" y="141" width="58" height="58"/><use href="#key" x="564" y="141" width="58" height="58"/><use href="#key" x="634" y="141" width="58" height="58"/><use href="#key" x="704" y="141" width="58" height="58"/><use href="#key" x="774" y="141" width="58" height="58"/><use href="#key" x="844" y="141" width="58" height="58"/>
+      <use href="#key" x="512" y="205" width="58" height="58"/><use href="#key" x="582" y="205" width="58" height="58"/><use href="#key" x="652" y="205" width="58" height="58"/><use href="#key" x="722" y="205" width="58" height="58"/><use href="#key" x="792" y="205" width="58" height="58"/><use href="#key" x="862" y="205" width="58" height="58"/>
+      <use href="#key" x="530" y="269" width="58" height="58"/><use href="#key" x="600" y="269" width="58" height="58"/><use href="#key" x="670" y="269" width="58" height="58"/><use href="#key" x="740" y="269" width="58" height="58"/><use href="#key" x="810" y="269" width="58" height="58"/><use href="#key" x="880" y="269" width="58" height="58"/>
+    </g>
+  </g>
+
+  <!-- Column-staggered -->
+  <g transform="translate(60 460)">
+    <rect class="panel" width="1080" height="380" rx="18"/>
+    <text class="label" x="40" y="69">カラムスタッガード</text>
+    <text class="explanation" x="40" y="112">列ごとに上下へずれる</text>
+
+    <path class="guide" d="M 448 42 H 914"/>
+    <path class="offset" d="M 505 44 V 108"/>
+    <path class="offset" d="M 575 44 V 92"/>
+    <path class="offset" d="M 645 44 V 78"/>
+    <path class="offset" d="M 715 44 V 84"/>
+    <path class="offset" d="M 785 44 V 98"/>
+    <path class="offset" d="M 855 44 V 114"/>
+
+    <g>
+      <use href="#key" x="476" y="110" width="58" height="58"/><use href="#key" x="476" y="174" width="58" height="58"/><use href="#key" x="476" y="238" width="58" height="58"/><use href="#key" x="476" y="302" width="58" height="58"/>
+      <use href="#key" x="546" y="94" width="58" height="58"/><use href="#key" x="546" y="158" width="58" height="58"/><use href="#key" x="546" y="222" width="58" height="58"/><use href="#key" x="546" y="286" width="58" height="58"/>
+      <use href="#key" x="616" y="80" width="58" height="58"/><use href="#key" x="616" y="144" width="58" height="58"/><use href="#key" x="616" y="208" width="58" height="58"/><use href="#key" x="616" y="272" width="58" height="58"/>
+      <use href="#key" x="686" y="86" width="58" height="58"/><use href="#key" x="686" y="150" width="58" height="58"/><use href="#key" x="686" y="214" width="58" height="58"/><use href="#key" x="686" y="278" width="58" height="58"/>
+      <use href="#key" x="756" y="100" width="58" height="58"/><use href="#key" x="756" y="164" width="58" height="58"/><use href="#key" x="756" y="228" width="58" height="58"/><use href="#key" x="756" y="292" width="58" height="58"/>
+      <use href="#key" x="826" y="116" width="58" height="58"/><use href="#key" x="826" y="180" width="58" height="58"/><use href="#key" x="826" y="244" width="58" height="58"/><use href="#key" x="826" y="308" width="58" height="58"/>
+    </g>
+  </g>
+
+  <!-- Ortholinear -->
+  <g transform="translate(60 860)">
+    <rect class="panel" width="1080" height="340" rx="18"/>
+    <text class="label" x="40" y="69">オーソリニア</text>
+    <text class="explanation" x="40" y="112">縦横の格子上にそろう</text>
+
+    <g class="grid">
+      <rect x="470" y="73" width="420" height="257"/>
+      <path d="M 540 73 V 330 M 610 73 V 330 M 680 73 V 330 M 750 73 V 330 M 820 73 V 330"/>
+      <path d="M 470 138 H 890 M 470 202 H 890 M 470 266 H 890"/>
+    </g>
+
+    <g>
+      <use href="#key" x="476" y="77" width="58" height="58"/><use href="#key" x="546" y="77" width="58" height="58"/><use href="#key" x="616" y="77" width="58" height="58"/><use href="#key" x="686" y="77" width="58" height="58"/><use href="#key" x="756" y="77" width="58" height="58"/><use href="#key" x="826" y="77" width="58" height="58"/>
+      <use href="#key" x="476" y="141" width="58" height="58"/><use href="#key" x="546" y="141" width="58" height="58"/><use href="#key" x="616" y="141" width="58" height="58"/><use href="#key" x="686" y="141" width="58" height="58"/><use href="#key" x="756" y="141" width="58" height="58"/><use href="#key" x="826" y="141" width="58" height="58"/>
+      <use href="#key" x="476" y="205" width="58" height="58"/><use href="#key" x="546" y="205" width="58" height="58"/><use href="#key" x="616" y="205" width="58" height="58"/><use href="#key" x="686" y="205" width="58" height="58"/><use href="#key" x="756" y="205" width="58" height="58"/><use href="#key" x="826" y="205" width="58" height="58"/>
+      <use href="#key" x="476" y="269" width="58" height="58"/><use href="#key" x="546" y="269" width="58" height="58"/><use href="#key" x="616" y="269" width="58" height="58"/><use href="#key" x="686" y="269" width="58" height="58"/><use href="#key" x="756" y="269" width="58" height="58"/><use href="#key" x="826" y="269" width="58" height="58"/>
+    </g>
+  </g>
+</svg>
