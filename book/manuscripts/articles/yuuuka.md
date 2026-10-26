@@ -143,9 +143,11 @@ GitHub(タスク管理.md) --push--> Actions(build-deploy)
    認証: Google ログイン → auth Lambda → CloudFront 署名付き Cookie
 ```
 
-![task-dashboard の全体構成図。Users/ブラウザ、Google (OIDC)、CloudFront、API Gateway (HTTP API)、auth Lambda、SSM、S3（非公開）、GitHub（article / task-dashboard Actions）、DeployRole を AWS 公式アイコンで示し、認証経路（CloudFront→API Gateway→auth Lambda→SSM）を太いオレンジの実線で強調、配信（CloudFront→S3）を実線、CI/CD（repository_dispatch・AssumeRole・deploy）を点線で描いた全体図。](./images_yuuuka/task-dashboard-architecture-aws.png)
+![task-dashboard の全体構成図](./images_yuuuka/task-dashboard-architecture-aws.png)
 
-*図2-1: 全体構成図。認証経路（`/auth/*` → API Gateway → auth Lambda → SSM）を太い実線で強調しています。配信は実線、CI/CD は点線で、主役の認証フローと区別できるようにしました。*
+この図は、Users/ブラウザ、Google (OIDC)、CloudFront、API Gateway (HTTP API)、auth Lambda、SSM、S3（非公開）、GitHub（article / task-dashboard Actions）、DeployRole を AWS 公式アイコンで示し、認証経路（CloudFront→API Gateway→auth Lambda→SSM）を太いオレンジの実線で強調、配信（CloudFront→S3）を実線、CI/CD（repository_dispatch・AssumeRole・deploy）を点線で描いています。
+
+認証経路（`/auth/*` → API Gateway → auth Lambda → SSM）を太い実線で強調しています。配信は実線、CI/CD は点線で、主役の認証フローと区別できるようにしました。
 
 配信基盤に S3 + CloudFront を選んだのは、個人で長く放置する前提のアプリだからです。ビルドは GitHub Actions 側に寄せ、配信は CloudFront に任せる構成にしています。更新のトリガーも、cron で定期的に回すのではなく、データソースが push されたときだけ `repository_dispatch` でビルドが起動するようにしました。無駄が減り、反映も速くなります。
 
@@ -207,9 +209,11 @@ OAC + 関数URL をやめ、CloudFront → API Gateway HTTP API(v2) → Lambda�
 - CloudFront からはただのカスタムオリジンになり、OAC の SigV4 署名が不要になります。POST が 403 になる問題も起きなくなりました。
 - payload format 2.0 のイベント形状は関数URLと同じ（`requestContext.http.path`）なので、Lambda コードは手を加えずに動かせます。
 
-![Google 認証の Before/After 図。Before（試行・失敗）はブラウザ（Google ID トークン取得済み）→CloudFront→OAC + Lambda 関数URL と進み、観測された事実として「HTTP 403」「Lambda ログなし（到達を確認できず）」を×印で示す。After（採用・成功）はブラウザ→CloudFront（/auth/*、OAC なし）→API Gateway (HTTP API)→(AWS_PROXY)→auth Lambda→「200 + JSON + 署名付き Cookie」→以降は CloudFront が Cookie を検証して S3（非公開）を配信する経路を示す。注記として拒否位置は Lambda 到達前と切り分けたこと、原因は断定していないことを記載。](./images_yuuuka/task-dashboard-auth-before-after.png){width=240}
+![Google 認証の Before/After 図](./images_yuuuka/task-dashboard-auth-before-after.png){width=280}
 
-*図2-2: Google 認証の Before（試行・失敗）/ After（採用・成功）。左（上）は観測事実、右（下）は採用後の経路で、原因は断定していません。Before は「POST が 403／Lambda ログが空＝到達を確認できず」という観測だけを示し、拒否位置が Lambda 到達前であることの切り分けにとどめています。*
+この図は、Before（試行・失敗）はブラウザ（Google ID トークン取得済み）→CloudFront→OAC + Lambda 関数URL と進み、観測された事実として「HTTP 403」「Lambda ログなし（到達を確認できず）」を×印で示す。After（採用・成功）はブラウザ→CloudFront（/auth/*、OAC なし）→API Gateway (HTTP API)→(AWS_PROXY)→auth Lambda→「200 + JSON + 署名付き Cookie」→以降は CloudFront が Cookie を検証して S3（非公開）を配信する経路を示す。注記として拒否位置は Lambda 到達前と切り分けたこと、原因は断定していないことを記載しています。
+
+Google 認証の Before（試行・失敗）/ After（採用・成功）。左（上）は観測事実、右（下）は採用後の経路で、原因は断定していません。Before は「POST が 403／Lambda ログが空＝到達を確認できず」という観測だけを示し、拒否位置が Lambda 到達前であることの切り分けにとどめています。
 
 ```yaml
 AuthIntegration:
