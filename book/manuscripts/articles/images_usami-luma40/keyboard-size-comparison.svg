@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 80 1200 1180" role="img" aria-labelledby="title description">
+  <title id="title">キーボードサイズの目安</title>
+  <desc id="description">フルサイズ、80％、60％、40％キーボードを同じキーの大きさで比較した模式図。小さくなるにつれてテンキー、ファンクションキーや独立したナビゲーションキー、数字キー列が省かれ、40％では数字などをFnレイヤーで入力することを示している。</desc>
+
+  <defs>
+    <g id="key">
+      <rect x="1" y="1" width="26" height="26" rx="4" fill="#f8f8f6" stroke="#242424" stroke-width="2"/>
+    </g>
+    <g id="row-3">
+      <use href="#key" x="0"/><use href="#key" x="32"/><use href="#key" x="64"/>
+    </g>
+    <g id="row-4">
+      <use href="#key" x="0"/><use href="#key" x="32"/><use href="#key" x="64"/><use href="#key" x="96"/>
+    </g>
+    <g id="row-12">
+      <use href="#key" x="0"/><use href="#key" x="32"/><use href="#key" x="64"/><use href="#key" x="96"/>
+      <use href="#key" x="128"/><use href="#key" x="160"/><use href="#key" x="192"/><use href="#key" x="224"/>
+      <use href="#key" x="256"/><use href="#key" x="288"/><use href="#key" x="320"/><use href="#key" x="352"/>
+    </g>
+    <g id="row-14">
+      <use href="#row-12"/><use href="#key" x="384"/><use href="#key" x="416"/>
+    </g>
+    <g id="function-row">
+      <use href="#key"/>
+      <use href="#row-12" x="64"/>
+    </g>
+    <g id="bottom-row-14">
+      <use href="#row-4"/>
+      <rect x="129" y="1" width="154" height="26" rx="4" fill="#f8f8f6" stroke="#242424" stroke-width="2"/>
+      <use href="#key" x="288"/><use href="#key" x="320"/><use href="#key" x="352"/><use href="#key" x="384"/><use href="#key" x="416"/>
+    </g>
+    <g id="bottom-row-12">
+      <use href="#row-4"/>
+      <rect x="129" y="1" width="122" height="26" rx="4" fill="#f8f8f6" stroke="#242424" stroke-width="2"/>
+      <use href="#key" x="256"/><use href="#key" x="288"/><use href="#key" x="320"/><use href="#key" x="352"/>
+    </g>
+    <g id="main-14x5">
+      <use href="#row-14" y="0"/><use href="#row-14" y="32"/><use href="#row-14" y="64"/>
+      <use href="#row-14" y="96"/><use href="#bottom-row-14" y="128"/>
+    </g>
+    <g id="navigation-and-cursor">
+      <use href="#row-3" y="0"/><use href="#row-3" y="32"/><use href="#row-3" y="64"/>
+      <use href="#key" x="32" y="96"/>
+      <text class="key-label" x="46" y="116">↑</text>
+      <use href="#row-3" y="128"/>
+      <text class="key-label" x="14" y="148">←</text>
+      <text class="key-label" x="46" y="148">↓</text>
+      <text class="key-label" x="78" y="148">→</text>
+    </g>
+    <g id="numpad-4x5">
+      <use href="#row-4" y="0"/><use href="#row-4" y="32"/><use href="#row-4" y="64"/>
+      <use href="#row-4" y="96"/><use href="#row-4" y="128"/>
+    </g>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#9e3f32"/>
+    </marker>
+    <style>
+      .label { font: 700 34px "Noto Sans JP", sans-serif; fill: #202020; }
+      .count { font: 700 25px "Noto Sans JP", sans-serif; fill: #9e3f32; }
+      .explanation { font: 400 23px "Noto Sans JP", sans-serif; fill: #404040; }
+      .annotation { font: 700 21px "Noto Sans JP", sans-serif; fill: #9e3f32; }
+      .key-label { font: 700 18px "Noto Sans JP", sans-serif; fill: #242424; text-anchor: middle; }
+      .note { font: 400 20px "Noto Sans JP", sans-serif; fill: #585858; }
+      .panel { fill: #ffffff; stroke: #d4d4cf; stroke-width: 2; }
+      .arrow { fill: none; stroke: #9e3f32; stroke-width: 3; marker-end: url(#arrow); }
+      .layer { fill: #f4e2de; stroke: #9e3f32; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="1260" fill="#ffffff"/>
+
+  <g transform="translate(60 100)">
+    <rect class="panel" width="1080" height="270" rx="18"/>
+    <text class="label" x="40" y="70">フルサイズ</text>
+    <text class="count" x="40" y="108">100キー以上</text>
+    <text class="explanation" x="40" y="148">すべての領域がある</text>
+    <g transform="translate(270 38)">
+      <use href="#function-row"/>
+      <use href="#main-14x5" y="54"/>
+      <use href="#navigation-and-cursor" x="480" y="54"/>
+      <use href="#numpad-4x5" x="624" y="54"/>
+    </g>
+  </g>
+
+  <g transform="translate(60 385)">
+    <rect class="panel" width="1080" height="270" rx="18"/>
+    <text class="label" x="40" y="70">80％</text>
+    <text class="count" x="40" y="108">80〜90キー程度</text>
+    <text class="explanation" x="40" y="148">テンキーなどを省く</text>
+    <g transform="translate(270 38)">
+      <use href="#function-row"/>
+      <use href="#main-14x5" y="54"/>
+      <use href="#navigation-and-cursor" x="480" y="54"/>
+    </g>
+    <text class="annotation" x="906" y="160">テンキーなし</text>
+  </g>
+
+  <g transform="translate(60 670)">
+    <rect class="panel" width="1080" height="270" rx="18"/>
+    <text class="label" x="40" y="70">60％</text>
+    <text class="count" x="40" y="108">60〜70キー程度</text>
+    <text class="explanation" x="40" y="148">Fキーなども省く</text>
+    <g transform="translate(270 55)">
+      <use href="#row-14"/>
+      <use href="#row-14" y="32"/><use href="#row-14" y="64"/><use href="#row-14" y="96"/><use href="#bottom-row-14" y="128"/>
+    </g>
+    <text class="annotation" x="750" y="145">矢印キーや</text>
+    <text class="annotation" x="750" y="175">Home / End などなし</text>
+  </g>
+
+  <g transform="translate(60 955)">
+    <rect class="panel" width="1080" height="245" rx="18"/>
+    <text class="label" x="40" y="70">40％</text>
+    <text class="count" x="40" y="108">40〜50キー程度</text>
+    <text class="explanation" x="40" y="148">数字キーなども省く</text>
+    <g transform="translate(270 47)">
+      <use href="#row-12"/><use href="#row-12" y="32"/><use href="#row-12" y="64"/><use href="#bottom-row-12" y="96"/>
+    </g>
+    <path class="arrow" d="M 675 112 H 758"/>
+    <rect class="layer" x="782" y="65" width="245" height="95" rx="12"/>
+    <text class="annotation" x="806" y="102">Fnレイヤー</text>
+    <text class="explanation" x="806" y="137">数字などを入力</text>
+  </g>
+
+  <text class="note" x="70" y="1240">※ 分類に厳密な定義はなく、キー構成は製品によって異なります。</text>
+</svg>
