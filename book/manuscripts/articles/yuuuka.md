@@ -8,6 +8,11 @@ profile: |
   Qiita: https://qiita.com/yuuuka
 ---
 
+<div class="doc-header">
+  <div class="doc-title">個人タスク管理アプリを作った話 ―― Google認証を入れようとしたら思ったより大変だった</div>
+  <div class="doc-author">yuuuka</div>
+</div>
+
 # 個人タスク管理アプリを作った話
 
 読者の皆さん、こんにちは。yuuuka です。PyLadies Tokyo というコミュニティのスタッフをしています。
@@ -94,7 +99,7 @@ Markdown なら GitHub を開けば見えますし、編集すれば更新でき
 
 直近のタスクまでの残り日数を一覧で見られる画面です。「超過」「今日」「残りn日」が並ぶので、何が差し迫っているかが一目で分かります。
 
-![締切カウントダウン画面](./task-dashboard-assets/dashboard.png)
+![締切カウントダウン画面](./images_yuuuka/dashboard.png)
 
 *締切カウントダウン画面。実データの一部をマスクしています。*
 
@@ -102,7 +107,7 @@ Markdown なら GitHub を開けば見えますし、編集すれば更新でき
 
 プライベートと技術コミュニティ活動の予定をまとめて見られる画面です。PC では月間でまとめて俯瞰し、スマホでは日次や週間の直近スケジュールを見られるようにしました。これにより、締切のカウントダウンだけでなく、直近の予定も確認できます。
 
-![カレンダー画面](./task-dashboard-assets/calender.png)
+![カレンダー画面](./images_yuuuka/calender.png)
 
 *カレンダー画面。実データの一部をマスクしています。*
 
@@ -110,7 +115,7 @@ Markdown なら GitHub を開けば見えますし、編集すれば更新でき
 
 次の一手の指針になる「AI の一言コメント」を出す画面です。タスクの状況を踏まえて「次にこれをやろう」というコメントが出るので、地味ですが日々の意識づけに効いています。
 
-![AIコメント一覧（マスク済み）](./task-dashboard-assets/ai_comment.png)
+![AIコメント一覧（マスク済み）](./images_yuuuka/ai_comment.png)
 
 *AI の一言コメント。実データの一部をマスクしています。*
 
@@ -118,7 +123,7 @@ Markdown なら GitHub を開けば見えますし、編集すれば更新でき
 
 最初は、ユーザー ID とパスワードでログインできる仕組みにしていました。ですが、最近はセキュリティの脆弱性問題が頻繁に起きています。個人用で、仮に見られても困らない内容ではあるものの、自前で ID とパスワードを抱え続けるのは避けたいと考え、**Google 認証**を取り入れることにしました。
 
-![ログイン画面（マスク済み）](./task-dashboard-assets/top_page.png)
+![ログイン画面（マスク済み）](./images_yuuuka/top_page.png)
 
 *ログイン画面。実データの一部をマスクしています。*
 
@@ -138,7 +143,7 @@ GitHub(タスク管理.md) --push--> Actions(build-deploy)
    認証: Google ログイン → auth Lambda → CloudFront 署名付き Cookie
 ```
 
-![task-dashboard の全体構成図。Users/ブラウザ、Google (OIDC)、CloudFront、API Gateway (HTTP API)、auth Lambda、SSM、S3（非公開）、GitHub（article / task-dashboard Actions）、DeployRole を AWS 公式アイコンで示し、認証経路（CloudFront→API Gateway→auth Lambda→SSM）を太いオレンジの実線で強調、配信（CloudFront→S3）を実線、CI/CD（repository_dispatch・AssumeRole・deploy）を点線で描いた全体図。](./task-dashboard-assets/task-dashboard-architecture-aws.png)
+![task-dashboard の全体構成図。Users/ブラウザ、Google (OIDC)、CloudFront、API Gateway (HTTP API)、auth Lambda、SSM、S3（非公開）、GitHub（article / task-dashboard Actions）、DeployRole を AWS 公式アイコンで示し、認証経路（CloudFront→API Gateway→auth Lambda→SSM）を太いオレンジの実線で強調、配信（CloudFront→S3）を実線、CI/CD（repository_dispatch・AssumeRole・deploy）を点線で描いた全体図。](./images_yuuuka/task-dashboard-architecture-aws.png)
 
 *図2-1: 全体構成図。認証経路（`/auth/*` → API Gateway → auth Lambda → SSM）を太い実線で強調しています。配信は実線、CI/CD は点線で、主役の認証フローと区別できるようにしました。*
 
@@ -202,7 +207,7 @@ OAC + 関数URL をやめ、CloudFront → API Gateway HTTP API(v2) → Lambda�
 - CloudFront からはただのカスタムオリジンになり、OAC の SigV4 署名が不要になります。POST が 403 になる問題も起きなくなりました。
 - payload format 2.0 のイベント形状は関数URLと同じ（`requestContext.http.path`）なので、Lambda コードは手を加えずに動かせます。
 
-![Google 認証の Before/After 図。Before（試行・失敗）はブラウザ（Google ID トークン取得済み）→CloudFront→OAC + Lambda 関数URL と進み、観測された事実として「HTTP 403」「Lambda ログなし（到達を確認できず）」を×印で示す。After（採用・成功）はブラウザ→CloudFront（/auth/*、OAC なし）→API Gateway (HTTP API)→(AWS_PROXY)→auth Lambda→「200 + JSON + 署名付き Cookie」→以降は CloudFront が Cookie を検証して S3（非公開）を配信する経路を示す。注記として拒否位置は Lambda 到達前と切り分けたこと、原因は断定していないことを記載。](./task-dashboard-assets/task-dashboard-auth-before-after.png)
+![Google 認証の Before/After 図。Before（試行・失敗）はブラウザ（Google ID トークン取得済み）→CloudFront→OAC + Lambda 関数URL と進み、観測された事実として「HTTP 403」「Lambda ログなし（到達を確認できず）」を×印で示す。After（採用・成功）はブラウザ→CloudFront（/auth/*、OAC なし）→API Gateway (HTTP API)→(AWS_PROXY)→auth Lambda→「200 + JSON + 署名付き Cookie」→以降は CloudFront が Cookie を検証して S3（非公開）を配信する経路を示す。注記として拒否位置は Lambda 到達前と切り分けたこと、原因は断定していないことを記載。](./images_yuuuka/task-dashboard-auth-before-after.png)
 
 *図2-2: Google 認証の Before（試行・失敗）/ After（採用・成功）。左（上）は観測事実、右（下）は採用後の経路で、原因は断定していません。Before は「POST が 403／Lambda ログが空＝到達を確認できず」という観測だけを示し、拒否位置が Lambda 到達前であることの切り分けにとどめています。*
 
