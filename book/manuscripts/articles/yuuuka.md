@@ -207,7 +207,7 @@ OAC + 関数URL をやめ、CloudFront → API Gateway HTTP API(v2) → Lambda�
 - CloudFront からはただのカスタムオリジンになり、OAC の SigV4 署名が不要になります。POST が 403 になる問題も起きなくなりました。
 - payload format 2.0 のイベント形状は関数URLと同じ（`requestContext.http.path`）なので、Lambda コードは手を加えずに動かせます。
 
-![Google 認証の Before/After 図。Before（試行・失敗）はブラウザ（Google ID トークン取得済み）→CloudFront→OAC + Lambda 関数URL と進み、観測された事実として「HTTP 403」「Lambda ログなし（到達を確認できず）」を×印で示す。After（採用・成功）はブラウザ→CloudFront（/auth/*、OAC なし）→API Gateway (HTTP API)→(AWS_PROXY)→auth Lambda→「200 + JSON + 署名付き Cookie」→以降は CloudFront が Cookie を検証して S3（非公開）を配信する経路を示す。注記として拒否位置は Lambda 到達前と切り分けたこと、原因は断定していないことを記載。](./images_yuuuka/task-dashboard-auth-before-after.png)
+![Google 認証の Before/After 図。Before（試行・失敗）はブラウザ（Google ID トークン取得済み）→CloudFront→OAC + Lambda 関数URL と進み、観測された事実として「HTTP 403」「Lambda ログなし（到達を確認できず）」を×印で示す。After（採用・成功）はブラウザ→CloudFront（/auth/*、OAC なし）→API Gateway (HTTP API)→(AWS_PROXY)→auth Lambda→「200 + JSON + 署名付き Cookie」→以降は CloudFront が Cookie を検証して S3（非公開）を配信する経路を示す。注記として拒否位置は Lambda 到達前と切り分けたこと、原因は断定していないことを記載。](./images_yuuuka/task-dashboard-auth-before-after.png){width=240}
 
 *図2-2: Google 認証の Before（試行・失敗）/ After（採用・成功）。左（上）は観測事実、右（下）は採用後の経路で、原因は断定していません。Before は「POST が 403／Lambda ログが空＝到達を確認できず」という観測だけを示し、拒否位置が Lambda 到達前であることの切り分けにとどめています。*
 
