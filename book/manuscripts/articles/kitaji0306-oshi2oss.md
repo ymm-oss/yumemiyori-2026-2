@@ -1,5 +1,6 @@
 ---
 class: content
+title: 推しは一生、OSSはいつまで？
 author: キタジー ( X:kitaji0306 )
 profile: |
   セキュリティを中心に活動するITエンジニア。<br>
