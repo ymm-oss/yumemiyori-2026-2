@@ -27,7 +27,7 @@
 - type: generated
   title: 著者紹介
   id: authors
-  toc: false
+  toc: true
 
 - type: generated
   title: 奥付
