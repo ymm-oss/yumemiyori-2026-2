@@ -1,5 +1,6 @@
 ---
 class: content
+title: 自律型AIエージェント、使っていますか？
 author: もつ
 profile: |
   クラウドとSaaSが好きなSRE

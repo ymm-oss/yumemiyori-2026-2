@@ -1,5 +1,6 @@
 ---
 class: content
+title: テストは全部 AI でええやろw ← これ
 author: もるぷい
 profile: |
   ゆめみ (アクセンチュア株式会社) の26卒。

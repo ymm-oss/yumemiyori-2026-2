@@ -1,5 +1,6 @@
 ---
 class: content
+title: 家のよわよわ回線をLTE回線とSD-WANを用いてロードバランスさせちょっとだけ安定させよう
 author: はるちろ（牧野）
 profile: |
   モバイル畑のAndroid・iOSエンジニア。
